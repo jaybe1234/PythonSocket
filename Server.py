@@ -35,7 +35,7 @@ class Server:
                 print(f"[EXCEPTION]", e)
                 break
         conn.close()
-        self._msghandler.removeUser(con,addr)
+        self._msghandler.removeUser(conn,addr)
         self.userNum -= 1
         print(f"[USER DISCONNECTED]")
 
