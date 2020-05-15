@@ -4,7 +4,7 @@ from msgHandler import msgHandler
 
 class Server:
     def __init__(self, port):
-        self.ip = "35.240.204.36"#socket.gethostbyname(socket.gethostname())
+        self.ip = "10.148.0.4"#socket.gethostbyname(socket.gethostname())
         self.port = port
         print(self.ip, self.port)
         self.userNum = 0
