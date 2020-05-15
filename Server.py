@@ -1,6 +1,6 @@
 import socket
 import threading
-from .msgHandler import msgHandler
+from msgHandler import msgHandler
 
 class Server:
     def __init__(self, port):
