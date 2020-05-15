@@ -5,6 +5,7 @@ from msgHandler import msgHandler
 class Server:
     def __init__(self, port):
         self.ip = "35.240.204.36"#socket.gethostbyname(socket.gethostname())
+        print(self.ip, self.port)
         self.port = port
         self.userNum = 0
         self.Server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
