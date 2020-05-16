@@ -27,7 +27,7 @@ class Server:
             try:
                 data = conn.recv(2048).decode("utf-8")
                 if data:
-                    # conn.sendall(data.encode("utf-8"))
+                    conn.sendall(data.encode("utf-8"))
                     print(f"[ECHO] {data}")
                     if data == "disconnect":
                         break

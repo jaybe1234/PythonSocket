@@ -1,7 +1,7 @@
 import socket
 import time
 
-ip = "35.240.204.36"
+ip = "35.198.242.49"
 port = 5050
 
 socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
