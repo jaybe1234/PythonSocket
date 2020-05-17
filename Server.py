@@ -35,10 +35,9 @@ class Server:
                     # if data == "disconnect":
                     #     break
             except Exception as e:
+                self._msghandler.removeUser(conn,addr)
                 print(f"[EXCEPTION]", e)
                 break
-        print(conn == self._msghandler.connectionList[0])
-        print(conn == self._msghandler.connectionList[1])
         self._msghandler.removeUser(conn,addr)
         conn.close()
         self.userNum -= 1
