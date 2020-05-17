@@ -29,7 +29,7 @@ class Server:
                 data = conn.recv(2048).decode("utf-8")
                 if data:
                     for i in self._msghandler.connectionList:
-                        conn_i,_= i
+                        conn_i,_ = i
                         conn_i.sendall(data.encode("utf-8"))
                     print(f"[ECHO] {data}")
                     # if data == "disconnect":
@@ -37,10 +37,6 @@ class Server:
             except Exception as e:
                 print(f"[EXCEPTION]", e)
                 break
-        for i in range(len(self._msghandler.connectionList)):
-            print(conn == self._msghandler.connectionList[i][0])
-        for i in range(len(self._msghandler.connectionList)):
-            print(addr == self._msghandler.connectionList[i][1])
         self._msghandler.removeUser(conn,addr)
         conn.close()
         self.userNum -= 1
