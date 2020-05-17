@@ -11,8 +11,12 @@ def send(msg):
     try:
         message = msg.encode('utf-8')
         socket.send(message)
+        print(socket.recv(2048).decode("utf-8"))
     except socket.error as e:
         print(e)
+
+
+
 
 send('Hello World')
 time.sleep(0.001)

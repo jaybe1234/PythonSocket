@@ -2,7 +2,7 @@ class msgHandler:
     def __init__(self):
         self.buffer = []
         self._userNum = 0
-        self._connectionList = []
+        self.connectionList = []
 
 
     def addUser(self,conn,addr):
@@ -12,8 +12,8 @@ class msgHandler:
         :param addr: (str, int) ip and port
         """
         # self.buffer.append([])
-        # self._userNum += 1
-        pass
+        self.connectionList.append((conn,addr))
+        self._userNum += 1
 
     def removeUser(self,conn, addr):
         """
@@ -21,7 +21,7 @@ class msgHandler:
         :param conn: connection object
         :param addr: (str, int) ip and port
         """
-        pass
+        self.connectionList.remove((conn,addr))
 
 
 
