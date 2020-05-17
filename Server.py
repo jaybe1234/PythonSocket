@@ -31,13 +31,13 @@ class Server:
                         conn_i, addr = i
                         conn_i.sendall(data.encode("utf-8"))
                     print(f"[ECHO] {data}")
-                    # if data == "disconnect":
-                    #     break
+                    if data == "disconnect":
+                        break
             except Exception as e:
                 print(f"[EXCEPTION]", e)
                 break
-        conn.close()
         self._msghandler.removeUser(conn,addr)
+        conn.close()
         self.userNum -= 1
         print(f"[USER DISCONNECTED]")
 
