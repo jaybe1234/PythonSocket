@@ -37,8 +37,8 @@ class Server:
             except Exception as e:
                 print(f"[EXCEPTION]", e)
                 break
-        print(conn = self._msghandler.connectionList[0])
-        print(conn = self._msghandler.connectionList[1])
+        print(conn == self._msghandler.connectionList[0])
+        print(conn == self._msghandler.connectionList[1])
         self._msghandler.removeUser(conn,addr)
         conn.close()
         self.userNum -= 1
