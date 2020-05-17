@@ -24,7 +24,6 @@ class Server:
         """
         self._msghandler.addUser(conn, addr)
         self.userNum += 1
-        print(conn == self._msghandler.connectionList[0][0])
         while True:
             try:
                 data = conn.recv(2048).decode("utf-8")
@@ -39,6 +38,8 @@ class Server:
                 self._msghandler.removeUser(conn,addr)
                 print(f"[EXCEPTION]", e)
                 break
+        for i in range(len(self._msghandler.connectionList)):
+            print(conn == self._msghandler.connectionList[i][0])
         self._msghandler.removeUser(conn,addr)
         conn.close()
         self.userNum -= 1
