@@ -22,6 +22,7 @@ class Server:
         :param conn: connection object
         :param addr: (str, int) ip and port
         """
+        self._msghandler.addUser(conn, addr)
         self.userNum += 1
         while True:
             try:
@@ -62,7 +63,6 @@ class Server:
         try:
             while True:
                 conn, addr  = self.Server.accept()
-                self._msghandler.addUser(conn, addr)
                 self.authenticate(conn, addr)
                 thread = threading.Thread(target=self.client_handler, args=(conn, addr))
                 thread.start()
