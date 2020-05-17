@@ -38,7 +38,7 @@ class Server:
                 print(f"[EXCEPTION]", e)
                 break
         for i in range(len(self._msghandler.connectionList)):
-            print(addr == self._msghandler.connectionList[i][0])
+            print(conn == self._msghandler.connectionList[i][0])
         for i in range(len(self._msghandler.connectionList)):
             print(addr == self._msghandler.connectionList[i][1])
         self._msghandler.removeUser(conn,addr)
