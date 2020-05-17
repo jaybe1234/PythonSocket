@@ -24,7 +24,7 @@ class Server:
         """
         self._msghandler.addUser(conn, addr)
         self.userNum += 1
-        print(conn = self._msghandler.connectionList)
+        print(conn == self._msghandler.connectionList)
         while True:
             try:
                 data = conn.recv(2048).decode("utf-8")
