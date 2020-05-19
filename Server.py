@@ -75,7 +75,7 @@ class Server:
                 thread.start()
                 thread2 = threading.Thread(target=self.send_to_client, args=(conn,addr))
                 thread2.start()
-                print(f"[ACTIVE CONNECTION] {threading.activeCount() - 1}")
+                print(f"[ACTIVE CONNECTION] {(threading.activeCount() - 1)/2}")
         except KeyBoardInterrupt:
             print("[SERVER CLOSING]")
             self.Server.close()
