@@ -47,7 +47,7 @@ class Server:
 
     def send_to_client(self, conn, addr):
         while True:
-            conn.sendall("bamlor".encode("utf-8")
+            conn.sendall("bamlor".encode("utf-8"))
             time.sleep(0.001)
 
 
