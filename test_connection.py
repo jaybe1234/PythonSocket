@@ -16,11 +16,6 @@ def send(msg):
         print(e)
 
 
-while True:
-    data = socket.recv(2048).decode("utf-8")
-    if data:
-        print(data)
-
 
 
 send('Hello World')

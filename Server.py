@@ -30,9 +30,10 @@ class Server:
             try:
                 data = conn.recv(2048).decode("utf-8")
                 if data:
-                    for i in self._msghandler.connectionList:
+                    for i in self._msghandler.connectionList:=
                         conn_i,_ = i
-                        conn_i.sendall(data.encode("utf-8"))
+                        if conn_i != conn:
+                            conn_i.sendall(data.encode("utf-8"))
                     print(f"[ECHO] {data}")
                     if data == "disconnect":
                         break
