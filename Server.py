@@ -30,7 +30,7 @@ class Server:
             try:
                 data = conn.recv(2048).decode("utf-8")
                 if data:
-                    for i in self._msghandler.connectionList:=
+                    for i in self._msghandler.connectionList:
                         conn_i,_ = i
                         if conn_i != conn:
                             conn_i.sendall(data.encode("utf-8"))
