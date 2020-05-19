@@ -73,7 +73,7 @@ class Server:
                 self.authenticate(conn, addr)
                 thread = threading.Thread(target=self.client_handler, args=(conn, addr))
                 thread.start()
-                thread2 = threading.Thread(target=self.client_handler, args=(conn,addr))
+                thread2 = threading.Thread(target=self.send_to_client, args=(conn,addr))
                 thread2.start()
                 print(f"[ACTIVE CONNECTION] {threading.activeCount() - 1}")
         except KeyBoardInterrupt:
