@@ -1,6 +1,7 @@
 import socket
 import threading
 from msgHandler import msgHandler
+import time
 
 
 class Server:
@@ -27,7 +28,6 @@ class Server:
         self.userNum += 1
         while True:
             try:
-                conn.sendall("bamlor".encode("utf-8"))
                 data = conn.recv(2048).decode("utf-8")
                 if data:
                     for i in self._msghandler.connectionList:
@@ -44,6 +44,12 @@ class Server:
         conn.close()
         self.userNum -= 1
         print(f"[USER DISCONNECTED]")
+
+    def send_to_client(self, conn, addr):
+        while True:
+            conn.sendall("bamlor".encode("utf-8")
+            time.sleep(0.001)
+
 
 
     def authenticate(self,conn, addr):
@@ -67,6 +73,8 @@ class Server:
                 self.authenticate(conn, addr)
                 thread = threading.Thread(target=self.client_handler, args=(conn, addr))
                 thread.start()
+                thread2 = threading.Thread(target=self.client_handler, args=(conm,addr))
+                thread2.start()
                 print(f"[ACTIVE CONNECTION] {threading.activeCount() - 1}")
         except KeyBoardInterrupt:
             print("[SERVER CLOSING]")
