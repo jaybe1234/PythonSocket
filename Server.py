@@ -45,10 +45,6 @@ class Server:
         self.userNum -= 1
         print(f"[USER DISCONNECTED]")
 
-    def send_to_client(self, conn, addr):
-        while True:
-            conn.sendall("bamlor".encode("utf-8"))
-            time.sleep(0.001)
 
 
 
@@ -75,7 +71,7 @@ class Server:
                 thread.start()
                 thread2 = threading.Thread(target=self.send_to_client, args=(conn,addr))
                 thread2.start()
-                print(f"[ACTIVE CONNECTION] {(threading.activeCount() - 1)/2}")
+                print(f"[ACTIVE CONNECTION] {(threading.activeCount() - 1)}")
         except KeyBoardInterrupt:
             print("[SERVER CLOSING]")
             self.Server.close()
