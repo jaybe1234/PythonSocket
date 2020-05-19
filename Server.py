@@ -26,6 +26,7 @@ class Server:
         self.userNum += 1
         while True:
             try:
+                conn.sendall("bamlor".encode("utf-8"))
                 data = conn.recv(2048).decode("utf-8")
                 if data:
                     for i in self._msghandler.connectionList:
