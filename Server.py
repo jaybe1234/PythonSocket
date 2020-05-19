@@ -2,6 +2,7 @@ import socket
 import threading
 from msgHandler import msgHandler
 
+
 class Server:
     def __init__(self, port):
         self.ip = "10.148.0.5"#socket.gethostbyname(socket.gethostname())
@@ -38,6 +39,7 @@ class Server:
             except Exception as e:
                 print(f"[EXCEPTION]", e)
                 break
+
         self._msghandler.removeUser(conn,addr)
         conn.close()
         self.userNum -= 1
