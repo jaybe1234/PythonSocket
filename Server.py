@@ -28,7 +28,7 @@ class Server:
         self.userNum += 1
         while True:
             try:
-                data = conn.recv(16777216)
+                data = conn.recv(2048)
                 if data:
                     print(len(data))
                     data = data.decode("utf-8")
