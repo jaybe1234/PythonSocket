@@ -28,13 +28,15 @@ class Server:
         self.userNum += 1
         while True:
             try:
-                data = conn.recv(16777216).decode("utf-8")
+                data = conn.recv(16777216)
                 if data:
+                    print(len(data))
+                    data = data.decode("utf-8")
                     for i in self._msghandler.connectionList:
                         conn_i,_ = i
                         if conn_i != conn:
                             conn_i.sendall(data.encode("utf-8"))
-                    print(f"[ECHO] {data}")
+                    # print(f"[ECHO] {data}")
                     if data == "disconnect":
                         break
             except Exception as e:
